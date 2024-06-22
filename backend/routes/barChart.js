@@ -105,7 +105,7 @@ router.get('/barchart', async (req, res) => {
       }
     ]);
 
-    console.log("Aggregation Results:", results);
+    // console.log("Aggregation Results:", results);
 
     res.json(results);
   } catch (error) {
