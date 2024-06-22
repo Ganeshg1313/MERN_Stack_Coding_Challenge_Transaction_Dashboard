@@ -50,8 +50,10 @@ router.get('/statistics', async (req, res) => {
       sold: false
     });
 
+    const finalTotalSalesAmount = totalSaleAmount.length > 0 ? totalSaleAmount[0].totalAmount : 0
+
     res.json({
-      totalSaleAmount: totalSaleAmount.length > 0 ? totalSaleAmount[0].totalAmount : 0,
+      totalSaleAmount: finalTotalSalesAmount.toFixed(2),
       totalSoldItems,
       totalNotSoldItems
     });
