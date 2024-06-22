@@ -13,12 +13,21 @@ router.get('/transactions', async (req, res) => {
     const query = {};
 
     if (search) {
+      const searchRegex = new RegExp(search, 'i');
+      const searchPrice = parseFloat(search);
+
       query.$or = [
-        { title: { $regex: new RegExp(search, 'i') } }, // Case-insensitive search
-        { description: { $regex: new RegExp(search, 'i') } },
-        { price: parseFloat(search) }
+        { title: { $regex: searchRegex } }, // Case-insensitive search
+        { description: { $regex: searchRegex } },
       ];
+
+      // Only include the price search if it's a valid number
+      if (!isNaN(searchPrice)) {
+        query.$or.push({ price: searchPrice });
+      }
     }
+
+    // console.log(query);
 
     const totalItems = await Transaction.countDocuments(query);
     const transactions = await Transaction.find(query)
