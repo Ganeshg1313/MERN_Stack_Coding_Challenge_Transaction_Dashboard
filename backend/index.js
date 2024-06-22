@@ -4,6 +4,8 @@ const axios = require('axios');
 const connectDB = require('./config/db');
 const initDB = require('./routes/initDB');
 const transactionsRoute = require('./routes/transactions');
+const statisticsRoute = require('./routes/statistics');
+const barChartRoute = require('./routes/barChart');
 
 const app = express();
 
@@ -12,6 +14,8 @@ connectDB();
 app.use(express.json());
 app.use('/api', initDB); //Intialise the database
 app.use('/api', transactionsRoute); // Mount transactions route
+app.use('/api', statisticsRoute); // Mount statistics route
+app.use('/api', barChartRoute); // Mount barChart route
 
 const PORT = process.env.PORT || 5000;
 
