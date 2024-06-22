@@ -38,6 +38,7 @@ router.get('/transactions', async (req, res) => {
     res.json({
       transactions,
       currentPage: page,
+      perPage: perPage,
       totalPages: Math.ceil(totalItems / perPage),
       totalItems
     });

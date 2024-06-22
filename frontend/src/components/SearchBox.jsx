@@ -1,4 +1,4 @@
-// src/components/SearchBox.js
+// src/components/SearchBox.jsx
 import React from 'react';
 
 const SearchBox = ({ searchQuery, setSearchQuery }) => {
@@ -8,6 +8,7 @@ const SearchBox = ({ searchQuery, setSearchQuery }) => {
       placeholder="Search transactions"
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
+      className="w-full py-2 px-4 rounded-2xl border border-black bg-bgLight focus:outline-none focus:border-blue-500"
     />
   );
 };

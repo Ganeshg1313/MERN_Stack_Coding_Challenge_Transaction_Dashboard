@@ -1,4 +1,4 @@
-// src/components/TransactionStatistics.js
+// src/components/TransactionStatistics.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -23,10 +23,11 @@ const TransactionStatistics = ({ selectedMonth }) => {
   }, [selectedMonth]);
 
   return (
-    <div>
-      <div>Total Sale Amount: {statistics.totalSaleAmount}</div>
-      <div>Total Sold Items: {statistics.totalSoldItems}</div>
-      <div>Total Not Sold Items: {statistics.totalNotSoldItems}</div>
+    <div className="bg-bgLight rounded p-4 mb-4">
+      <h2 className="text-black font-bold mb-2">Transaction Statistics</h2>
+      <div className="text-black mb-2">Total Sale Amount: {statistics.totalSaleAmount}</div>
+      <div className="text-black mb-2">Total Sold Items: {statistics.totalSoldItems}</div>
+      <div className="text-black mb-2">Total Not Sold Items: {statistics.totalNotSoldItems}</div>
     </div>
   );
 };
