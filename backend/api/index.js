@@ -28,14 +28,14 @@ app.use('/api', pieChartRoute); // Mount pieChart route
 // Function to call the initialization API
 const initializeDatabase = async () => {
   try {
-    const res = await axios.get(`https://transaction-dashboard-api.vercel.app/api/init`);
+    const res = await axios.get(`http://localhost:5000/api/init`);
     console.log(res.data);
   } catch (error) {
     console.error('Error initializing database:', error);
   }
 };
 
-// initializeDatabase();
+initializeDatabase();
 
 // Combined Data API endpoint
 app.get('/api/combinedData', async (req, res) => {
