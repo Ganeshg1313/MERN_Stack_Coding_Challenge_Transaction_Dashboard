@@ -1,4 +1,4 @@
-require('dotenv').config();
+import { PORT, MONGO_URI } from "../config";
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -52,7 +52,7 @@ app.get('/api/combinedData', async (req, res) => {
       axios.get(`https://transaction-dashboard-api.vercel.app/api/statistics`, {
         params: { month }
       }),
-      axios.get(`https://transaction-dashboard-api.vercel.app/api/barChart`, {
+      axios.get(`https://transaction-dashboard-api.vercel.app/api/barchart`, {
         params: { month }
       })
     ]);
