@@ -2,12 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-const connectDB = require('./config/db');
-const initDB = require('./routes/initDB');
-const transactionsRoute = require('./routes/transactions');
-const statisticsRoute = require('./routes/statistics');
-const barChartRoute = require('./routes/barChart');
-const pieChartRoute = require('./routes/pieChart');
+const connectDB = require('../config/db');
+const initDB = require('../routes/initDB');
+const transactionsRoute = require('../routes/transactions');
+const statisticsRoute = require('../routes/statistics');
+const barChartRoute = require('../routes/barChart');
+const pieChartRoute = require('../routes/pieChart');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
