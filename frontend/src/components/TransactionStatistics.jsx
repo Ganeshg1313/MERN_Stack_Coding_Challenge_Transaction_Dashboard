@@ -1,6 +1,7 @@
 // src/components/TransactionStatistics.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import apiUrl from '../conf/conf'
 
 const TransactionStatistics = ({ selectedMonth }) => {
   const [statistics, setStatistics] = useState({

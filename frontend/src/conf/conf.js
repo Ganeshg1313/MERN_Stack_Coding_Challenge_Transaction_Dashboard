@@ -1,6 +1,3 @@
-const conf = {
-    apiUrl: String(import.meta.env.VITE_API_URL),
-}
+export const apiUrl = 'https://transaction-dashboard-api.vercel.app'
 
-
-export default conf
+export default apiUrl;

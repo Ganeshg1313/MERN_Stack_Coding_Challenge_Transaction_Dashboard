@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import apiUrl from '../conf/conf'
 
 const TransactionBarChart = ({ selectedMonth }) => {
   const [barChartData, setBarChartData] = useState([]);
