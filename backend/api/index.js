@@ -29,7 +29,7 @@ app.use('/api', pieChartRoute); // Mount pieChart route
 // Function to call the initialization API
 const initializeDatabase = async () => {
   try {
-    const res = await axios.get(`http://localhost:${PORT}/api/init`);
+    const res = await axios.get(`https://transaction-dashboard-api.vercel.app/api/init`);
     console.log(res.data);
   } catch (error) {
     console.error('Error initializing database:', error);
@@ -46,13 +46,13 @@ app.get('/api/combinedData', async (req, res) => {
 
     // Make requests to the three APIs concurrently, with appropriate parameters
     const [transactionsResponse, statisticsResponse, barChartResponse] = await Promise.all([
-      axios.get(`http://localhost:${PORT}/api/transactions`, {
+      axios.get(`https://transaction-dashboard-api.vercel.app/api/transactions`, {
         params: { page, perPage, search }
       }),
-      axios.get(`http://localhost:${PORT}/api/statistics`, {
+      axios.get(`https://transaction-dashboard-api.vercel.app/api/statistics`, {
         params: { month }
       }),
-      axios.get(`http://localhost:${PORT}/api/barChart`, {
+      axios.get(`https://transaction-dashboard-api.vercel.app/api/barChart`, {
         params: { month }
       })
     ]);

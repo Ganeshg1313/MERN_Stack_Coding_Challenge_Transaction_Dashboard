@@ -9,7 +9,7 @@ const TransactionBarChart = ({ selectedMonth }) => {
   useEffect(() => {
     const fetchBarChartData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/barChart', { params: { month: selectedMonth } });
+        const response = await axios.get(`${apiUrl}/api/barChart`, { params: { month: selectedMonth } });
         setBarChartData(response.data);
       } catch (error) {
         console.error('Error fetching bar chart data:', error);

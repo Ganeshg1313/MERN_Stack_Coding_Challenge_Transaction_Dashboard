@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchBox from './SearchBox';
 import Pagination from './Pagination';
+import apiUrl from '../conf/conf'
 
 const TransactionTable = () => {
   const [transactions, setTransactions] = useState([]);
@@ -13,7 +14,7 @@ const TransactionTable = () => {
 
   const fetchTransactions = async (page, perPage, search) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/transactions', {
+      const response = await axios.get(`${apiUrl}/api/transactions`, {
         params: {
           page,
           perPage,

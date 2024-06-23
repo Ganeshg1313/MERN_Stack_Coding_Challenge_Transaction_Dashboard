@@ -12,7 +12,7 @@ const TransactionStatistics = ({ selectedMonth }) => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/statistics', { params: { month: selectedMonth } });
+        const response = await axios.get(`${apiUrl}/api/statistics`, { params: { month: selectedMonth } });
         setStatistics(response.data);
       } catch (error) {
         console.error('Error fetching statistics:', error);
