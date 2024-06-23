@@ -1,4 +1,4 @@
-import { PORT, MONGO_URI } from "../config";
+const { PORT, MONGO_URI } = require('../config');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
