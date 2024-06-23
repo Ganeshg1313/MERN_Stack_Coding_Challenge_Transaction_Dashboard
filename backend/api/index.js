@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Connect to database
+// Connection to DB
 connectDB();
 
 // Routes
@@ -40,10 +40,9 @@ initializeDatabase();
 // Combined Data API endpoint
 app.get('/api/combinedData', async (req, res) => {
   try {
-    // Extract query parameters
+    
     const { month, page, perPage, search } = req.query;
 
-    // Make requests to the three APIs concurrently, with appropriate parameters
     const [transactionsResponse, statisticsResponse, barChartResponse] = await Promise.all([
       axios.get(`https://transaction-dashboard-api.vercel.app/api/transactions`, {
         params: { page, perPage, search }
@@ -63,7 +62,6 @@ app.get('/api/combinedData', async (req, res) => {
       barChart: barChartResponse.data
     };
 
-    // Send the combined JSON response
     res.json(combinedData);
   } catch (error) {
     console.error('Error fetching combined data:', error);
@@ -71,12 +69,11 @@ app.get('/api/combinedData', async (req, res) => {
   }
 });
 
-// Default route
 app.get('/', (req, res) => {
   res.send('Welcome');
 });
 
-// Start the server
+// Start 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

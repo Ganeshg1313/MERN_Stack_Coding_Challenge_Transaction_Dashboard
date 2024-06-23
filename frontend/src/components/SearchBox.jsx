@@ -1,4 +1,4 @@
-// src/components/SearchBox.jsx
+
 import React from 'react';
 
 const SearchBox = ({ searchQuery, setSearchQuery }) => {

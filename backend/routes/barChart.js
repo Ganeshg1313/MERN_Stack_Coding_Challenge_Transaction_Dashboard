@@ -11,7 +11,7 @@ const validMonths = [
 const isValidMonth = (month) => validMonths.includes(month);
 
 router.get('/barchart', async (req, res) => {
-  const month = req.query.month; // Get the month from query parameters
+  const month = req.query.month; 
 
   if (!isValidMonth(month)) {
     return res.status(400).json({ error: 'Invalid month' });
@@ -85,16 +85,16 @@ router.get('/barchart', async (req, res) => {
       },
       {
         $project: {
-          _id: 0, // Exclude the _id field from the output
-          range: { $objectToArray: "$$ROOT" } // Convert the grouped fields to key-value pairs
+          _id: 0, 
+          range: { $objectToArray: "$$ROOT" } 
         }
       },
       {
-        $unwind: "$range" // Unwind to separate each range into its own document
+        $unwind: "$range" 
       },
       {
         $match: {
-          "range.k": { $ne: "_id" } // Filter out the document with _id as range
+          "range.k": { $ne: "_id" } 
         }
       },
       {

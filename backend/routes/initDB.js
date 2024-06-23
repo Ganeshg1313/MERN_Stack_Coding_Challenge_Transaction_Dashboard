@@ -11,11 +11,8 @@ router.get('/init', async (req, res) => {
     if (transactionCount > 0) {
       return res.status(200).send('Database already initialized');
     }
-
-    // Fetch data from the third-party API
     const { data } = await axios.get('https://s3.amazonaws.com/roxiler.com/product_transaction.json');
 
-    // Seed the database with the fetched data
     await Transaction.insertMany(data);
 
     res.status(200).send('Database initialized with seed data');

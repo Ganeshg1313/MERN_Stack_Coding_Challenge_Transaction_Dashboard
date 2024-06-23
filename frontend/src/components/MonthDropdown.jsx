@@ -1,4 +1,4 @@
-// src/components/MonthDropdown.jsx
+
 import React from 'react';
 
 const MonthDropdown = ({ selectedMonth, setSelectedMonth }) => {

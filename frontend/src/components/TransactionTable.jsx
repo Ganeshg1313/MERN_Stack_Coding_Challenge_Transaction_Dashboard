@@ -1,4 +1,4 @@
-// src/components/TransactionTable.jsx
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchBox from './SearchBox';

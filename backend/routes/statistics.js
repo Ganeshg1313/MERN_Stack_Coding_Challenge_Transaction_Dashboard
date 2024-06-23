@@ -7,12 +7,12 @@ router.get('/statistics', async (req, res) => {
   try {
     const month = req.query.month;
 
-    // Validate month parameter (optional)
+   
     if (!isValidMonth(month)) {
       return res.status(400).json({ msg: 'Invalid month. Please provide a valid month.' });
     }
 
-    // Parse month into numeric value (1 for January, 12 for December)
+   
     const monthNumber = new Date(`${month} 1`).getMonth() + 1;
 
     // Calculate total sale amount
@@ -33,7 +33,7 @@ router.get('/statistics', async (req, res) => {
       }
     ]);
 
-    // Calculate total number of sold items
+    
     const totalSoldItems = await Transaction.countDocuments({
       $expr: {
         $eq: [{ $month: "$dateOfSale" }, monthNumber]
@@ -41,7 +41,7 @@ router.get('/statistics', async (req, res) => {
       sold: true
     });
 
-    // Calculate total number of not sold items
+    
     const totalNotSoldItems = await Transaction.countDocuments({
       $expr: {
         $eq: [{ $month: "$dateOfSale" }, monthNumber]

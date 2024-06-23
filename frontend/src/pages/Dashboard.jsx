@@ -1,4 +1,4 @@
-// src/pages/Dashboard.js
+
 import React, { useState } from 'react';
 import MonthDropdown from '../components/MonthDropdown';
 import TransactionTable from '../components/TransactionTable';
