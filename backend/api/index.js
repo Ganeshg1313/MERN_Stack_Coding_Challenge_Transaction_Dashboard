@@ -35,7 +35,7 @@ const initializeDatabase = async () => {
   }
 };
 
-initializeDatabase();
+// initializeDatabase();
 
 // Combined Data API endpoint
 app.get('/api/combinedData', async (req, res) => {
