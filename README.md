@@ -6,7 +6,7 @@
 
 ### Links
 
-- **Frontend**: [https://transaction-dashboard-api.vercel.app/](https://transaction-dashboard-liard.vercel.app/)
+- **Frontend**: [https://transaction-dashboard-liard.vercel.app/](https://transaction-dashboard-liard.vercel.app/)
 - **Backend**: [https://transaction-dashboard-api.vercel.app/](https://transaction-dashboard-api.vercel.app/)
 
 ## Overview
