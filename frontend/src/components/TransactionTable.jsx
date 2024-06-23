@@ -12,7 +12,6 @@ const TransactionTable = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchTransactions = async (page, perPage, search) => {
-    console.log(page, ", ", perPage, ", ", search);
     try {
       const response = await axios.get('http://localhost:5000/api/transactions', {
         params: {
@@ -23,7 +22,6 @@ const TransactionTable = () => {
       });
 
       setTransactions(response.data.transactions);
-      console.log(response.data.transactions)
       setCurrentPage(response.data.currentPage);
       setPerPage(response.data.perPage);
       setTotalPages(response.data.totalPages);
@@ -36,32 +34,39 @@ const TransactionTable = () => {
     fetchTransactions(currentPage, perPage, searchQuery);
   }, [perPage, currentPage, searchQuery]);
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setCurrentPage(1); // Reset to first page on search
+  };
+
   return (
     <div className="rounded mb-4">
       <div className="w-1/4 m-3 ml-0">
-        <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <SearchBox searchQuery={searchQuery} setSearchQuery={handleSearch} />
       </div>
       <table className="w-full border-collapse">
         <thead>
           <tr className="bg-bgExtraDark">
+            <th className="border-2 border-black px-4 py-2 rounded-tl-lg">id</th>
             <th className="border-2 border-black px-4 py-2">Title</th>
             <th className="border-2 border-black px-4 py-2">Description</th>
             <th className="border-2 border-black px-4 py-2">Price</th>
             <th className="border-2 border-black px-4 py-2">Category</th>
             <th className="border-2 border-black px-4 py-2">Sold</th>
-            <th className="border-2 border-black px-4 py-2">Image</th>
+            <th className="border-2 border-black px-4 py-2 rounded-tr-lg">Image</th>
           </tr>
         </thead>
         <tbody>
           {transactions.length > 0 ? (
-            transactions.map((transaction) => (
+            transactions.map((transaction, index) => (
               <tr key={transaction._id} className="bg-bgLight">
+                <td className={`border-2 border-black px-4 py-2 ${index === transactions.length - 1 ? 'rounded-bl-lg' : ''}`}>{transaction.id}</td>
                 <td className="border-2 border-black px-4 py-2">{transaction.title}</td>
                 <td className="border-2 border-black px-4 py-2">{transaction.description}</td>
-                <td className="border-2 border-black px-4 py-2">{transaction.price}</td>
+                <td className="border-2 border-black px-4 py-2">{transaction.price.toFixed(2)}</td>
                 <td className="border-2 border-black px-4 py-2">{transaction.category}</td>
                 <td className="border-2 border-black px-4 py-2">{transaction.sold ? 'Yes' : 'No'}</td>
-                <td className="border-2 border-black px-4 py-2">
+                <td className={`border-2 border-black px-4 py-2 ${index === transactions.length - 1 ? 'rounded-br-lg' : ''}`}>
                   <img
                     src={transaction.image}
                     alt={transaction.title}
@@ -72,7 +77,7 @@ const TransactionTable = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="6" className="border-2 border-black px-4 py-2 text-center">
+              <td colSpan="7" className="border-2 border-black px-4 py-2 text-center">
                 No transactions found
               </td>
             </tr>

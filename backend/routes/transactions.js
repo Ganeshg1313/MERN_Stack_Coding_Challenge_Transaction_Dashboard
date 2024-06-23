@@ -17,18 +17,14 @@ router.get('/transactions', async (req, res) => {
       const searchPrice = parseFloat(search);
 
       query.$or = [
-        { title: { $regex: searchRegex } }, // Case-insensitive search
+        { title: { $regex: searchRegex } }, 
         { description: { $regex: searchRegex } },
       ];
 
-      // Only include the price search if it's a valid number
       if (!isNaN(searchPrice)) {
         query.$or.push({ price: searchPrice });
       }
     }
-
-    // console.log(query);
-
     const totalItems = await Transaction.countDocuments(query);
     const transactions = await Transaction.find(query)
       .skip((page - 1) * perPage)

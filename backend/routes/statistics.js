@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Transaction = require('../models/Transaction');
 
-// GET /api/statistics
-// Get statistics for the selected month
+
 router.get('/statistics', async (req, res) => {
   try {
     const month = req.query.month;

@@ -23,11 +23,19 @@ const TransactionStatistics = ({ selectedMonth }) => {
   }, [selectedMonth]);
 
   return (
-    <div className="bg-bgLight rounded p-4 mb-4">
-      <h2 className="text-black font-bold mb-2">Transaction Statistics</h2>
-      <div className="text-black mb-2">Total Sale Amount: {statistics.totalSaleAmount}</div>
-      <div className="text-black mb-2">Total Sold Items: {statistics.totalSoldItems}</div>
-      <div className="text-black mb-2">Total Not Sold Items: {statistics.totalNotSoldItems}</div>
+    <div className="bg-bgLight rounded-3xl p-6 mb-4">
+      <div className='w/full flex justify-between'>
+        <div className="text-black mb-2 font-semibold">Total Sale Amount</div>
+        <div>{statistics.totalSaleAmount}</div>
+      </div>
+      <div className='w/full flex justify-between font-semibold'>
+        <div className="text-black mb-2">Total Sold Items</div>
+        <div>{statistics.totalSoldItems}</div>
+      </div>
+      <div className='w/full flex justify-between font-semibold'>
+        <div className="text-black mb-2">Total Not Sold Items</div>
+        <div>{statistics.totalNotSoldItems}</div>
+      </div>
     </div>
   );
 };

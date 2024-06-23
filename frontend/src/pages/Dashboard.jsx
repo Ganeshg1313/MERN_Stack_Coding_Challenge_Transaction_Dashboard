@@ -21,11 +21,21 @@ const Dashboard = () => {
       <div className="rounded mb-4">
         <TransactionTable />
       </div>
-      <div className="bg-yellow-300 rounded mb-4">
-        <TransactionStatistics selectedMonth={selectedMonth} />
+      <div className='mt-10 w-2/3'>
+        <div className='w-full mb-4'>
+        <p className='font-bold text-2xl inline'>Statistics - {selectedMonth}</p><p className='mr-2 inline'>(Selected month name from dropdown)</p>
+        </div>
+        <div className="w-1/2 bg-yellow-300 rounded-3xl mb-4">
+          <TransactionStatistics selectedMonth={selectedMonth} />
+        </div>
       </div>
-      <div className="rounded mb-4">
-        <TransactionBarChart selectedMonth={selectedMonth} />
+      <div className='mt-10 w-2/3'>
+        <div className='w-full mb-7'>
+        <p className='font-bold text-2xl inline'>Bar Chart Stats - {selectedMonth}</p><p className='mr-2 inline'>(Selected month name from dropdown)</p>
+        </div>
+        <div className="w-1/2 bg-yellow-300 rounded-3xl mb-4">
+          <TransactionBarChart selectedMonth={selectedMonth} />
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export default {
       'bgLight': '#fde68a',
       'bgDark': '#fcd34d',
       'bgExtraDark': '#fbbf24',
-      'mainBg': '#cbd5e1',
+      'mainBg': '#ddd6fe',
     },
     extend: {},
   },
