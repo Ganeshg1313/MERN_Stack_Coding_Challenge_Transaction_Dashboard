@@ -2,10 +2,10 @@
 ## NAME : GANESH VAMAN GHODKE
 ## COLLEGE : PCET"S NMIET
 
-## NOTE: I HAVE DEPLOYED BOTH FRONTEND AND BACKEND ON THE VERCEL 
+## NOTE: I HAVE DEPLOYED BOTH FRONTEND AND BACKEND ON THE VERCEL
 
 ### Links
-
+### if you see No transactions found then wait : The transactions table takes time to load
 - **Frontend**: [https://transaction-dashboard-liard.vercel.app/](https://transaction-dashboard-liard.vercel.app/)
 - **Backend**: [https://transaction-dashboard-api.vercel.app/](https://transaction-dashboard-api.vercel.app/)
 
